@@ -1,0 +1,29 @@
+<h1>Prepared Statements</h1>
+
+<h2>O que é o Prepared Statements</h2>
+
+<p>É um recurso do Banco de dados que separa a estrutura de código SQL da consulta de dados inseridos, usando interrogação (?) ou nomes como marcadores de posição, o que impede tentativas de ataques de <b>SQL injection</b>.</p>
+
+<h2>Exemplos</h2>
+<h3>Um exemplo de código não tratado:</h3>
+
+    $titulo = $_POST["titulo"];
+    $autor = $_POST["autor"];
+    $ano = $_POST["ano"];
+
+    $sql = "INSERT INTO livros (titulo,autor,ano) VALUES ('$titulo','$autor','$ano')";
+
+    mysqli_query($conexao, $sql);
+
+    header("Location: ../index.php");
+
+<h3>Um exemplo de código tratado:</h3>
+
+    // 1. Prepara o modelo da consulta SQL
+    $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email) VALUES (:nome, :email)");
+
+    // 2. Associa os valores reais e executa
+    $stmt->execute([
+        'nome' => 'Ana Souza',
+        'email' => 'ana@email.com'
+    ]);
