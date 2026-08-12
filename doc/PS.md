@@ -17,13 +17,23 @@
 
     header("Location: ../index.php");
 
+<h4>Problemas:</h4>
+<ul>
+    <li>Facilidade para possivel <b>SQL injection</b></li>
+    <li>Dados entram diretamente na SQL</li>
+    <li>Dados inválidos podem ser cadastrados</li>
+    
+</ul>
+
 <h3>Um exemplo de código tratado:</h3>
 
     // 1. Prepara o modelo da consulta SQL
-    $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email) VALUES (:nome, :email)");
+    $sql = "INSERT INTO livros (titulo,autor,ano) VALUES (:titulo,:autor,:ano)";
+    $stmt = $pdo->prepare($sql);
 
     // 2. Associa os valores reais e executa
     $stmt->execute([
-        'nome' => 'Ana Souza',
-        'email' => 'ana@email.com'
+    'titulo' => $_POST["titulo"],
+    'autor' => $_POST["autor"],
+    'ano' => $_POST["ano"]
     ]);
