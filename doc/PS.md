@@ -37,3 +37,21 @@
     'autor' => $_POST["autor"],
     'ano' => $_POST["ano"]
     ]);
+
+<h2>Importancia do Prepared Statement</h2>
+
+<h3>Segurança</h3>
+<ul>
+
+<li><b>Bloqueio de SQL Injection:</b> Impede que entradas maliciosas alterem a lógica da consulta original, pois os valores digitados por usuários são tratados estritamente como dados, e nunca como comandos executáveis.</li>
+
+<li><b>Tratamento automático de caracteres:</b> Caracteres especiais (como aspas simples) são neutralizados de forma automática pelo driver do banco de dados</li>
+
+</ul>
+
+<h3>Desempenho e Eficiência</h3>
+
+<ul>
+<li><b>Pré-compilação:</b> O banco de dados analisa, compila e otimiza o plano de execução da instrução SQL apenas uma vez.</li>
+<li><b>Reutilização: </b>O plano compilado fica em cache. Consultas repetidas com parâmetros diferentes ganham velocidade em execuções subsequentes</li>
+</ul>
