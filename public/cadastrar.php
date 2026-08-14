@@ -9,7 +9,7 @@ include "../infra/conexao.php";
 $sql = "INSERT INTO livros (titulo,autor,ano) VALUES (:titulo,:autor,:ano)";
 
 
-$stmt = prepare($sql);
+$stmt = $msqli ->prepare($sql);
 
 
 $stmt->execute([

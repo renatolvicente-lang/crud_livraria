@@ -29,7 +29,7 @@
 
     // 1. Prepara o modelo da consulta SQL
     $sql = "INSERT INTO livros (titulo,autor,ano) VALUES (:titulo,:autor,:ano)";
-    $stmt = prepare($sql);
+    $stmt = $msqli -> prepare($sql);
 
     // 2. Associa os valores reais e executa
     $stmt->execute([
