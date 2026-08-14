@@ -9,7 +9,7 @@ include "../infra/conexao.php";
 $sql = "INSERT INTO livros (titulo,autor,ano) VALUES (:titulo,:autor,:ano)";
 
 
-$stmt = $pdo->prepare($sql);
+$stmt = prepare($sql);
 
 
 $stmt->execute([
