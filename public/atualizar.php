@@ -9,5 +9,8 @@ $ano = $_POST["ano"];
 
 $sql = "UPDATE livros SET titulo='$titulo',autor='$autor',ano='$ano' WHERE id = '$id'";
 
-mysqli_query($conexao, $sql);
+$comando = $conexao -> prepare($sql);
+$comando -> bind_param('ssi', $titulo, $autor, $ano);
+$comando -> execute();
+
 header("Location: ../index.php");
